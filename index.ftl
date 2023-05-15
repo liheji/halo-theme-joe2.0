@@ -34,6 +34,9 @@
       <#include "template/common/actions.ftl">
       <#include "template/common/footer.ftl">
     </div>
-    <@tailInfo.tail type="index"/> 
+    <@tailInfo.tail type="index"/>
+    <#if settings.enable_music_player && settings.music_id?? && settings.music_id!=''>
+      <div id="aplayer" class="aplayer" data-id="${settings.music_id}" list-max-height="20px" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random"  data-mode="#f3f3f7"></div>
+    </#if>
   </body>
 </html>

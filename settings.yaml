@@ -58,6 +58,25 @@ genernal:
 theme:
   label: 主题相关
   items:
+    enable_music_player:
+      name: enable_music_player
+      label: 展示全局音乐播放器
+      type: switch
+      data-type: bool
+      default: false
+      description: "在底栏展示音乐播放器模块，必须配置歌单ID（目前仅支持网易云歌单）"
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    music_id:
+      name: music_id
+      label: 歌单ID
+      type: text
+      default: ""
+      placeholder: "请输入网易云歌单ID"
+      description: "为音乐播放器配置歌单ID，大家在网页歌单页直接复制地址栏id参数后面那串数字即可，不填或填错将不会展示播放器（注意：仅支持网易云歌单ID，且不支持私密歌单）"
     theme_mode:
       name: theme_mode
       label: 主题模式
@@ -813,7 +832,7 @@ carousel:
       type: attachment
       default: "/themes/joe2.0/source/img/lazyload_h.gif"
       description: "轮播图默认为懒加载，这里可以为banner图设置加载完之前的加载图（体积尽可能的小）"
-    
+
 # 侧边栏
 aside:
   label: 侧边栏
@@ -978,37 +997,6 @@ aside:
       label: 二维码描述
       type: textarea
       placeholder: "请输入二维码描述（仅在二维码url不为空时生效）"
-    enable_qrcode:
-      name: enable_qrcode
-      label: 展示二维码
-      type: switch
-      data-type: bool
-      default: false
-      description: "在侧边栏展示二维码模块，必须配置图片url"
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
-    enable_music_player:
-      name: enable_music_player
-      label: 展示音乐播放器
-      type: switch
-      data-type: bool
-      default: false
-      description: "在侧边栏展示音乐播放器模块，必须配置歌单ID（目前仅支持网易云歌单）"
-      options:
-        - value: true
-          label: 开启
-        - value: false
-          label: 关闭
-    music_id:
-      name: music_id
-      label: 歌单ID
-      type: text
-      default: ""
-      placeholder: "请输入网易云歌单ID"
-      description: "为音乐播放器配置歌单ID，大家在网页歌单页直接复制地址栏id参数后面那串数字即可，不填或填错将不会展示播放器（注意：仅支持网易云歌单ID，且不支持私密歌单）"
     enable_newest_post:
       name: enable_newest_post
       label: 展示最新文章
@@ -1032,6 +1020,18 @@ aside:
       type: switch
       data-type: bool
       default: true
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
+    enable_visit:
+      name: enable_visit
+      label: 展示访客信息
+      type: switch
+      data-type: bool
+      default: true
+      description: "在侧边栏展示访客信息"
       options:
         - value: true
           label: 开启
@@ -1220,7 +1220,7 @@ blogger:
       type: switch
       data-type: bool
       default: true
-      description: "是否展示简约版天气信息，必须配置正确的appKey后才可生效"
+      description: "是否展示简约版天气信息，必须配置正确的appKey后才可生效（展示位置：博主信息右上角）"
       options:
         - value: true
           label: 是
@@ -1343,7 +1343,7 @@ blogger:
 # 首页
 home:
   label: 首页
-  items: 
+  items:
     enable_index_list_ajax:
       name: enable_index_list_ajax
       label: 异步加载文章列表
@@ -1724,6 +1724,18 @@ archives:
         - value: false
           label: 否
 
+    enable_archives_tag:
+      name: enable_archives_tag
+      label: 展示标签数据
+      type: switch
+      data-type: bool
+      default: true
+      options:
+        - value: true
+          label: 是
+        - value: false
+          label: 否
+
 # 文章页
 post:
   label: 文章页
@@ -1922,7 +1934,6 @@ post:
         - value: true
           label: 开启
         - value: false
-          label: 关闭
           label: 关闭
     enable_indent:
       name: enable_indent
@@ -2343,7 +2354,7 @@ photos:
 #留言页
 leaving:
   label: 留言页
-  items: 
+  items:
     # leaving_title:
     #   name: leaving_title
     #   label: 留言页标题
@@ -2367,7 +2378,7 @@ leaving:
 # 友链页
 links:
   label: 友链页
-  items: 
+  items:
     links_title:
       name: links_title
       label: 友链页标题
@@ -2413,7 +2424,7 @@ links:
 # 分类页
 categories:
   label: 分类页
-  items: 
+  items:
     categories_title:
       name: categories_title
       label: 分类页标题
@@ -2456,11 +2467,11 @@ categories:
           label: 开启
         - value: false
           label: 关闭
- 
+
 # 标签页
 tags:
   label: 标签页
-  items: 
+  items:
     tags_title:
       name: tags_title
       label: 标签页标题

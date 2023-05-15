@@ -72,7 +72,7 @@
           </@postTag>
         <#--  阅读量排行文章  -->
         <#elseif source_type == 'visits'>
-          <@postTag method="latest" top="${limit}">
+          <@postTag method="lastProp" prop="visits" top="${limit}">
             <#if posts?size gt 0>
               <#list posts?sort_by("visits")?reverse as post>
                 <@bitem.banner_item post=post index=post_index max=limit />
@@ -84,7 +84,7 @@
           </@postTag>
         <#--  点赞排行文章  -->
         <#elseif source_type == 'likes'>
-          <@postTag method="latest" top="${limit}">
+          <@postTag method="lastProp" prop="likes" top="${limit}">
             <#if posts?size gt 0>
               <#list posts?sort_by("likes")?reverse as post>
                 <@bitem.banner_item post=post index=post_index max=limit />

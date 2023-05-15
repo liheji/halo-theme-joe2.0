@@ -38,6 +38,20 @@
                   </ul>
                 </div>
               </#if>
+              <#if settings.enable_archives_tag!true>
+                <div class="joe_archives__category animated fadeIn">
+                  <div class="joe_archives-title"><i class="joe-font joe-icon-tag"></i>标签</div>
+                    <ul class="joe_category-list">
+                      <@tagTag method="list">
+                        <#list tags as tag>
+                          <li class="item">
+                            <a class="link" href="${tag.fullPath!}" title="${tag.name!}"><span title="${tag.name!}">${tag.name!}</span><em>${tag.postCount!}</em></a>
+                          </li>
+                        </#list>
+                      </@tagTag>
+                    </ul>
+                </div>
+              </#if>
               <div class="joe_archives__wrapper animated fadeIn">
                 <div class="joe_archives-title">
                   <#if settings.archives_list_type=='timeline'>

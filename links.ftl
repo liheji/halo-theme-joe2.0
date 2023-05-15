@@ -46,7 +46,7 @@
               <div class="link-requirement">
                 <p>
                   <#assign logo_url = blog_url + '/logo'>
-                  <joe-message type="info" content='<em style="font-style:normal;font-weight:bold;">< 博客名称 + 博客地址 + 博客Logo + 博客简介 ></em><br>博客名称：${blog_title!}<br>博客地址：<a href="${blog_url!}">${blog_url!}</a><br>博客Logo：<a href="${logo_url!!}">${logo_url!}</a><br>博客简介：${(meta_description?? && meta_description!="")?then(meta_description,"这是一个非常牛逼的博客")}<br>(大家在留言栏目中留言即可)'></joe-message>
+                  <joe-message type="info" content='<em style="font-style:normal;font-weight:bold;">< 博客名称 + 博客地址 + 博客Logo + 博客简介 ></em><br>博客名称：${blog_title!}<br>博客地址：<a href="${blog_url!}">${blog_url!}</a><br>博客Logo：<a href="${logo_url!!}">${logo_url!}</a><br>博客简介：${(meta_description?? && meta_description!="")?then(meta_description,"寄蜉蝣於天地，渺滄海之一粟。")}<br>(大家在留言栏目中留言即可)'></joe-message>
                 </p>
               </div>
             </article>
