@@ -40,7 +40,7 @@
                   </div>
                 </#list>
                 <div class="item hidden">
-                  <a href="https://blog.liheji.top/console#/posts/edit?postId=${post.id}" target="_blank" title="${post.title!}">编辑</a>
+                  <a href="${blog_url}/console#/posts/edit?postId=${post.id}" target="_blank" title="${post.title!}"><i class="joe-font joe-icon-edit"></i></a>
                 </div>
                 <style>.joe_detail__category a {color: var(--theme);}.joe_detail__category .hidden {display: none;}.joe_detail__category .item {max-width: 200px;}.joe_detail__category .item:last-of-type {margin-left: auto;}.joe_detail__category .item:last-of-type a {color: var(--minor) !important;}</style>
                 <script>window.addEventListener("DOMContentLoaded",()=>{const tokenStr=localStorage.getItem("HALO__Access-Token");if(tokenStr&&tokenStr.length>0){const accessToken=JSON.parse(tokenStr);if(accessToken&&accessToken.expire&&typeof accessToken.expire==='number'&&new Date().getTime()<accessToken.expire){const post_edit=document.querySelector(".joe_detail__category .hidden");post_edit.classList.remove("hidden")}}})</script>

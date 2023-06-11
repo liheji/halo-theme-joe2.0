@@ -13,8 +13,10 @@
           <div class="joe_detail">
             <h1 class="joe_detail__title txt-shadow">${title}</h1>
             <#if settings.enable_journal_add!false>
-              <a class="joe_journal_add" href="${blog_url+'/admin/index.html#/sheets/journals'}" target="_blank" rel="nofollow"><i class="joe-font joe-icon-edit"></i></a>
-            </#if>                
+              <a class="joe_journal_add hidden" href="${blog_url}/console/index.html#/sheets/journals" target="_blank" rel="nofollow"><i class="joe-font joe-icon-edit"></i></a>
+            </#if>
+            <style>.joe_journal_add.hidden {display: none;}</style>
+            <script>window.addEventListener("DOMContentLoaded",()=>{const tokenStr=localStorage.getItem("HALO__Access-Token");if(tokenStr&&tokenStr.length>0){const accessToken=JSON.parse(tokenStr);if(accessToken&&accessToken.expire&&typeof accessToken.expire==='number'&&new Date().getTime()<accessToken.expire){const post_edit=document.querySelector(".joe_journal_add.hidden");post_edit.classList.remove("hidden")}}})</script>
             <div class="joe_detail__count">
               <div class="joe_detail__count-information">
                 <img width="35" height="35" class="avatar lazyload" data-src="${USER_AVATAR}" src="${settings.lazyload_avatar!}" onerror="Joe.errorImg(this)" alt="${user.nickname!}">

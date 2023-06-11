@@ -52,6 +52,7 @@
 4. 侧栏增加访客信息，使用
    模板标签postTag新增的lastProp方法（ [liheji/halo](https://github.com/liheji/halo.git) ）修改热点排行等文章数据
 5. 捐赠改版
+6. 修该后台路径（admin_path）为 console
 
 ### 🌈 安装 & 更新
 

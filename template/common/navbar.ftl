@@ -66,7 +66,7 @@
       </#if>
       <#--  <div class="joe_header__below-sign">
         <div class="item">
-          <a href="${blog_url!}/admin" target="_blank" rel="noopener noreferrer nofollow">登录</a>
+          <a href="${blog_url!}/console" target="_blank" rel="noopener noreferrer nofollow">登录</a>
         </div>
       </div>  -->
     </div>
