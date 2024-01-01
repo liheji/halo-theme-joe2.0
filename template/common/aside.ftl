@@ -53,7 +53,7 @@
       <#else>
         <script src="${settings.custom_cdn_url}/npm/ua-parser-js@1.0.35/src/ua-parser.min.js"></script>
       </#if>
-      <script>window.VISIT_75905460=(data)=>{window.addEventListener('load',()=>{document.getElementById("visit_ip").innerHTML=data.ip;document.getElementById("visit_view").innerHTML=document.getElementById("busuanzi_value_site_uv").innerText;document.getElementById("visit_city").innerHTML=data.data.city;const parser=new UAParser();const os=parser.getOS();const browser=parser.getBrowser();document.getElementById("visit_browser").innerHTML=browser.name+" "+browser.major;document.getElementById("visit_operate").innerHTML=os.name+" "+os.version})}</script>
+      <script>window.VISIT_75905460=(data)=>{window.addEventListener('load',()=>{document.getElementById("visit_ip").innerHTML=data.ip;document.getElementById("visit_view").innerHTML=document.getElementById("busuanzi_value_site_uv").innerText;let from=data.data.city;if(from==null||from.trim()===""){from=data.data.prov}if(from==null||from.trim()===""){from=data.data.owner}document.getElementById("visit_city").innerHTML=from;const parser=new UAParser();const os=parser.getOS();const browser=parser.getBrowser();document.getElementById("visit_browser").innerHTML=browser.name+" "+browser.major;document.getElementById("visit_operate").innerHTML=os.name+" "+os.version})}</script>
       <script async src="https://api.liheji.top/ip.php?jsonpCallback=VISIT_75905460"></script>
     </#if>
     <#if settings.enable_lifetime!true>
