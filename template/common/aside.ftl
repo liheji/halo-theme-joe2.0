@@ -40,21 +40,16 @@
           <span class="text">访客信息</span>
         </div>
         <div class="joe_aside__item-contain">
-          <div class="item"><span>欢迎来自</span><span id="visit_city">-</span><span>的朋友</span></div>
-          <div class="item"><span>不期而遇，你是第</span><span id="visit_view">-</span><span>位</span></div>
-          <div class="item"><span>您的IP是</span><span id="visit_ip">-</span></div>
-          <div class="item"><span>你的浏览器是</span><span id="visit_browser">-</span></div>
-          <div class="item"><span>你的操作系统是</span><span id="visit_operate">-</span></div>
+          <div id="visitor_info"></div>
         </div>
       </section>
-      <style>.joe_aside__item.visit{color:var(--minor);background:var(--background);}.joe_aside__item.visit .joe_aside__item-contain .item{font-size:15px;line-height:26px;}.joe_aside__item.visit .joe_aside__item-contain .item span:nth-child(2){color:var(--theme);margin:5px;font-size:16px;}</style>
-      <#if settings.cdn_type=='none'>
-        <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.35/src/ua-parser.min.js"></script>
-      <#else>
-        <script src="${settings.custom_cdn_url}/npm/ua-parser-js@1.0.35/src/ua-parser.min.js"></script>
-      </#if>
-      <script>window.VISIT_75905460=(data)=>{window.addEventListener('load',()=>{document.getElementById("visit_ip").innerHTML=data.ip;document.getElementById("visit_view").innerHTML=document.getElementById("busuanzi_value_site_uv").innerText;let from=data.data.city;if(from==null||from.trim()===""){from=data.data.prov}if(from==null||from.trim()===""){from=data.data.owner}document.getElementById("visit_city").innerHTML=from;const parser=new UAParser();const os=parser.getOS();const browser=parser.getBrowser();document.getElementById("visit_browser").innerHTML=browser.name+" "+browser.major;document.getElementById("visit_operate").innerHTML=os.name+" "+os.version})}</script>
-      <script async src="https://api.liheji.top/ip.php?jsonpCallback=VISIT_75905460"></script>
+      <script async src="https://api.yilee.top/visitor.php"></script>
+      <style>.joe_aside__item.visit{color:var(--minor);background:var(--background);}</style>
+    <#if settings.cdn_type=='none'>
+      <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.35/src/ua-parser.min.js"></script>
+    <#else>
+      <script src="${settings.custom_cdn_url}/npm/ua-parser-js@1.0.35/src/ua-parser.min.js"></script>
+    </#if>
     </#if>
     <#if settings.enable_lifetime!true>
       <section class="joe_aside__item timelife">
